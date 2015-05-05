@@ -1,0 +1,1 @@
+This is simply a placeholder project for some arbitrary python tools. Most of the scripts you find here are for my own self-learning of Python, so please forgive bad Python coding practices; they make sense in some other programming language.
