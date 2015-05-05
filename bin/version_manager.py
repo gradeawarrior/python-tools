@@ -10,6 +10,10 @@ major_version = None
 minor_version = None
 patch_version = None
 
+#===============================================================================
+#                               Options Parser
+#===============================================================================
+
 parser = OptionParser()
 parser.add_option("-f", "--file", dest="version_file", 
         help="A VERSION file to read (DEFAULT: ./VERSION)")
@@ -22,6 +26,12 @@ parser.add_option("--uprev-patch", action="store_true", dest="uprev_patch", defa
 parser.add_option("--write-patch", action="store_true", dest="write_patch", default=False, 
         help="This toggles writing the patch number to the VERSION file (Default: False)")
 (option, args) = parser.parse_args()
+
+
+#===============================================================================
+#                               Utility Functions
+#===============================================================================
+
 
 def get_version(version_file):
     global parser
@@ -63,6 +73,12 @@ def write_version(version_file, major, minor, patch, write_version=False):
 
     return
 
+
+#===============================================================================
+#                                   Main
+#===============================================================================
+
+
 version_file = option.version_file if option.version_file else version_file
 get_version(version_file)
 
@@ -80,4 +96,3 @@ if option.uprev_major or option.uprev_minor or option.uprev_patch:
     write_version(version_file, major_version, minor_version, patch_version, option.write_patch)
 
 print "VERSION: %s.%s.%s" %(major_version, minor_version, patch_version)
-
